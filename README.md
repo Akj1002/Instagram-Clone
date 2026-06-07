@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram Logo" width="100" />
+  <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram Logo" width="80" />
 
   # Instagram Clone 📸
 
