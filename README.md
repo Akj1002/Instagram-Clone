@@ -1,88 +1,117 @@
-# Instagram Clone 📸
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram Logo" width="100" />
 
-A full-stack, feature-rich Instagram clone built with modern web technologies. This application replicates the core functionality of Instagram, complete with real-time features, interactive UI components, and even an AI-powered chatbot!
+  # Instagram Clone 📸
 
-## 🌟 Features
+  <p>
+    <strong>A full-stack, feature-rich Instagram clone built with modern web technologies.</strong>
+  </p>
 
-- **Authentication System**: Secure user registration and login using JSON Web Tokens (JWT) and bcrypt.
-- **Dynamic Feed**: View posts from users you follow.
-- **Real-Time Reels**: Scrollable, real-time short-form video feed (Reels). You can create your own Reels using image or video URLs.
-- **Stories & Notes**: Post expiring stories and leave short text notes that appear in the messaging interface.
-- **Interactive Posts**: Like, comment, and save posts. 
-- **Real-Time Messaging**: Real-time private messaging using Socket.io with online status indicators (green dot) and live typing indicators.
-- **Meta AI Chatbot**: Built-in AI assistant powered by Google Gemini (gemini-1.5-flash), accessible directly from your DMs, just like Meta AI on Instagram.
-- **Explore Page**: Discover posts from users across the platform.
-- **User Profiles**: View user grids, edit your profile details, follow/unfollow functionality.
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
+    <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" alt="Prisma" />
+    <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white" alt="Socket.io" />
+    <img src="https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white" alt="Gemini API" />
+  </p>
+</div>
+
+<br />
+
+## 🌟 Overview
+This project is a comprehensive replication of Instagram's core functionality. From a dynamic feed and interactive real-time messaging, to AI-powered chatbots and short-form video reels, this application demonstrates the power of the modern JavaScript ecosystem.
+
+---
+
+## ✨ Key Features
+
+- **🛡️ Secure Authentication**: Full user registration, login, and secure sessions using JSON Web Tokens (JWT) and `bcrypt` password hashing.
+- **📱 Dynamic Feed**: Scroll through posts from users you follow. Like, comment, and save your favorite posts.
+- **🎬 Real-Time Reels**: A dedicated, scrollable feed for short-form content. Users can upload image/video URLs to instantly publish their own Reels.
+- **💬 Real-Time Messaging & Notes**: Private messaging powered by Socket.io. See who's online with live green-dot indicators, watch real-time typing bubbles (`...`), and leave disappearing notes for your friends.
+- **🤖 Meta AI Chatbot**: Built-in intelligent assistant powered by Google's **Gemini 1.5 Flash**. Chat directly with "Meta AI" in your DMs—it remembers your conversation context and replies dynamically!
+- **🔍 Explore & Search**: Discover new content on the Explore page and search for other users to follow.
+- **👤 Custom Profiles**: Manage your personal grid, edit your bio and avatar, and track your followers/following counts.
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React.js** (Vite)
-- **Lucide React** (for modern, scalable iconography)
-- **Axios** (for API requests)
-- **Socket.io-client** (for real-time communication)
-- **Vanilla CSS** (custom variables and modern styling)
+- **Framework**: React.js (via Vite for blazing-fast development)
+- **Styling**: Vanilla CSS with modern CSS Variables and glassmorphic aesthetics
+- **Icons**: Lucide React
+- **API Communication**: Axios
+- **Real-Time WebSockets**: Socket.io-client
 
 ### Backend
-- **Node.js & Express** (RESTful API architecture)
-- **Prisma ORM** (Database management)
-- **SQLite** (Development database)
-- **Socket.io** (WebSockets)
-- **Google Generative AI SDK** (for the Meta AI chatbot)
+- **Runtime & Framework**: Node.js & Express.js
+- **Database ORM**: Prisma
+- **Database**: SQLite (Easily swappable to PostgreSQL or MySQL)
+- **WebSockets**: Socket.io
+- **AI Integration**: `@google/generative-ai`
+
+---
 
 ## 🚀 Getting Started
 
+Follow these instructions to get a copy of the project up and running on your local machine.
+
 ### Prerequisites
-- Node.js (v18+)
-- npm or yarn
+- [Node.js](https://nodejs.org/en/) (v18 or higher)
+- npm or yarn installed globally
 
-### Installation
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Akj1002/Instagram-Clone.git
+cd Instagram-Clone
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Akj1002/Instagram-Clone.git
-   cd Instagram-Clone
-   ```
+### 2. Setup the Backend
+Navigate to the backend directory, install dependencies, and configure your environment variables.
+```bash
+cd backend
+npm install
+```
 
-2. **Setup Backend**
-   ```bash
-   cd backend
-   npm install
-   ```
-   - Create a `.env` file in the `backend` directory with the following variables:
-     ```env
-     PORT=5000
-     DATABASE_URL="file:./dev.db"
-     JWT_SECRET="your_super_secret_jwt_key"
-     GEMINI_API_KEY="your_google_gemini_api_key"
-     ```
-   - Run database migrations:
-     ```bash
-     npx prisma db push
-     npx prisma generate
-     ```
-   - Start the backend server:
-     ```bash
-     npm run dev
-     ```
+Create a `.env` file in the `backend` directory:
+```env
+PORT=5000
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="your_super_secret_jwt_key"
+GEMINI_API_KEY="your_google_gemini_api_key" # Required for Meta AI
+```
 
-3. **Setup Frontend**
-   ```bash
-   # Open a new terminal window
-   cd frontend
-   npm install
-   ```
-   - Start the frontend development server:
-     ```bash
-     npm run dev
-     ```
+Push the database schema and start the server:
+```bash
+npx prisma db push
+npx prisma generate
+npm run dev
+```
+*The backend server will run on `http://localhost:5000`.*
 
-4. **Open the App**
-   Navigate to `http://localhost:5173` in your browser.
+### 3. Setup the Frontend
+Open a new terminal instance, navigate to the frontend directory, and start the Vite development server.
+```bash
+cd frontend
+npm install
+npm run dev
+```
+*The frontend application will be accessible at `http://localhost:5173`.*
+
+---
 
 ## 💡 Usage Highlights
-- **Chatting with Meta AI**: Go to the Messages tab, click on the "Meta AI" contact pinned at the top, and ask it anything! It has contextual awareness of your chat session.
-- **Creating Reels**: Go to the Reels tab and click "Create Reel". Paste a direct image or video URL to see it appear in the feed instantly.
+
+- **Chatting with Meta AI**: Navigate to the **Messages** tab in the sidebar. Click on the "Meta AI" contact pinned at the top and say hello! Ask it to write a poem or answer a complex question.
+- **Creating a Reel**: Open the **Reels** tab and click "Create Reel" in the top right. Paste an image or video URL to see it instantly added to the public Reels feed.
+- **Status Indicators**: Open the app in two different browser windows with two different accounts to see the real-time "Online" green dots and typing indicators in action!
+
+---
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
 
 ## 📄 License
-This project is for educational purposes. Feel free to fork and build upon it!
+This project is intended for educational purposes and portfolio demonstration. Feel free to fork, modify, and build upon it!
